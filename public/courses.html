@@ -31,11 +31,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="mentors.html">Mentors</a>
                     <a class="nav-link" href="students.html">Students</a>
                     <a class="nav-link" href="courses.html">Courses</a>
-                    <a class="nav-link" href="courses_students.html">Courses_Students</a>
+                    <a class="nav-link" href="students_courses.html">Students_Courses</a>
                     <a class="nav-link" href="tutors.html">Tutors</a>
-                    <a class="nav-link" href="mentors.html">Mentors</a>
                     <a class="nav-link" href="invoices.html">Invoices</a>
                 </div>
             </div>
@@ -45,7 +45,7 @@
     <!--Description-->
     <div class="my-5">
         <h1 style="text-align: center">Courses</h1>
-        <h3 style="text-align: center"> This page is for adding, updating and removing course information to the database</h3>
+        <h3 style="text-align: center"> This page is for adding and removing course information to the database</h3>
     </div>
 
     <div class="container">
@@ -54,7 +54,7 @@
             <thead>
             <tr>
                 <th scope="col">course_id</th>
-                <th scope="col">course_name</th>
+                <th scope="col">Course Name</th>
                 <th scope="col">tutor_id</th>
                 <th scope="col">tuition</th>
             </tr>
@@ -62,9 +62,13 @@
             <tbody>
             <tr>
                 <th scope="row">74827</th>
+                <td</td>
                 <td>MATH101</td>
                 <td>211</td>
                 <td>1000</td>
+                <td>
+                    <i class="bi bi-pencil-square"></i>
+                </td>
                 <td>
                     <i class="bi bi-trash"></i>
                 </td>
@@ -75,6 +79,9 @@
                 <td>311</td>
                 <td>1000</td>
                 <td>
+                    <i class="bi bi-pencil-square"></i>
+                </td>
+                <td>
                     <i class="bi bi-trash"></i>
                 </td>
             </tr>
@@ -83,28 +90,65 @@
     </div>
 
     <!--Forms-->
-    <div class="row justify-content-center my-5">
-        <div class="col-lg-6">
-        <form>
-            <label for="coursename" class="form-label">Course Name</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="coursename">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Data</h5>
+                        <form>
+                            <label for="coursename" class="form-label">Course Name</label>
+                            <div class="mb-4">
+                                <select class="custom-select" id="inputGroupSelect02">
+                                    <option value="1">Course 1</option>
+                                    <option value="2">Course 2</option>
+                                    <option value="3">Course 3</option>
+                                    <option value="1">Course 4</option>
+                                    <option value="2">Course 5</option>
+                                    <option value="3">Course 6</option>
+                                </select>
+                            </div>
+                            <label for="tutorid" class="form-label">tutor_id</label>
+                            <div class="mb-4">
+                                <input type="text" class="form-control" id="tutorid">
+                            </div>
+                            <label for="tuition" class="form-label">Tuition</label>
+                            <div class="mb-4">
+                                <input type="text" class="form-control" id="tuition">
+                            </div>
+                            <div class="mb-4 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <label for="tutor" class="form-label">Tutor ID</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="tutor">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Search by</h5>
+                        <label for="coursename" class="form-label">Course Name</label>
+                        <div class="mb-4">
+                            <select class="custom-select" id="inputGroupSelect02">
+                                <option value="1">Course 1</option>
+                                <option value="2">Course 2</option>
+                                <option value="3">Course 3</option>
+                                <option value="1">Course 4</option>
+                                <option value="2">Course 5</option>
+                                <option value="3">Course 6</option>
+                            </select>
+                        </div>
+                        <label for="tutorid" class="form-label">tutor_id</label>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="tutorid">
+                        </div>
+                        <div class="mb-4 text-center">
+                            <button type="submit" class="btn btn-secondary">Search</button>
+                            <button type="submit" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <label for="tuition" class="form-label">Tuition</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="tuition">
-            </div>
-
-            <div class="mb-4 text-center">
-                <button type="submit" class="btn btn-secondary">Submit</button>
-            </div>
-        </form>
         </div>
     </div>
     
@@ -118,5 +162,4 @@
         crossorigin="anonymous">
     </script>
 </body>
-
 </html>

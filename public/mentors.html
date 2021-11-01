@@ -31,11 +31,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="mentors.html">Mentors</a>
                     <a class="nav-link" href="students.html">Students</a>
                     <a class="nav-link" href="courses.html">Courses</a>
-                    <a class="nav-link" href="courses_students.html">Courses_Students</a>
+                    <a class="nav-link" href="students_courses.html">Students_Courses</a>
                     <a class="nav-link" href="tutors.html">Tutors</a>
-                    <a class="nav-link" href="mentors.html">Mentors</a>
                     <a class="nav-link" href="invoices.html">Invoices</a>
                 </div>
             </div>
@@ -45,17 +45,22 @@
     <!--Description-->
     <div class="my-5">
         <h1 style="text-align: center">Mentors</h1>
-        <h3 style="text-align: center"> This page is for adding, updating and removing mentor information to the database</h3>
+        <h3 style="text-align: center"> This page is for adding and removing mentor information to the database</h3>
     </div>
 
+    <!--Citation for table
+        Date: 10/24/2021
+        Adapted from
+        Source URL: https://getbootstrap.com/docs/5.0/content/tables/
+    -->
     <div class="container">
         <!--Table with Attributes-->
         <table class="table table-hover">
             <thead>
             <tr>
                 <th scope="col">mentor_id</th>
-                <th scope="col">first_name</th>
-                <th scope="col">last_name</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
             </tr>
             </thead>
             <tbody>
@@ -63,6 +68,9 @@
                 <th scope="row">001</th>
                 <td>Joe</td>
                 <td>Lee</td>
+                <td>
+                    <i class="bi bi-pencil-square"></i>
+                </td>
                 <td>
                     <i class="bi bi-trash"></i>
                 </td>
@@ -72,6 +80,9 @@
                 <td>Marcus</td>
                 <td>Thompson</td>
                 <td>
+                    <i class="bi bi-pencil-square"></i>
+                </td>
+                <td>
                     <i class="bi bi-trash"></i>
                 </td>
             </tr>
@@ -80,6 +91,9 @@
                 <td>Rose</td>
                 <td>Carter</td>
                 <td>
+                    <i class="bi bi-pencil-square"></i>
+                </td>
+                <td>
                     <i class="bi bi-trash"></i>
                 </td>
             </tr>
@@ -87,27 +101,57 @@
         </table>
     </div>
 
+
+    <!--Citation for cards and forms
+        Date: 10/24/2021
+        Adapted from
+        Source URL: https://getbootstrap.com/docs/4.0/components/card/, https://getbootstrap.com/docs/4.0/components/forms/
+    -->
     <!--Forms-->
-    <div class="row justify-content-center my-5">
-        <div class="col-lg-6">
-        <form>
-            <label for="firstname" class="form-label">First Name</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="firstname">
+    <div class="container">
+        <div class="row my-5">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Data</h5>
+                        <form>
+                            <label for="firstname" class="form-label">First Name</label>
+                            <div class="mb-4">
+                                <input type="text" class="form-control" id="firstname">
+                            </div>
+                            <label for="lastname" class="form-label">Last Name</label>
+                            <div class="mb-4">
+                                <input type="text" class="form-control" id="lastname">
+                            </div>
+                            <div class="mb-4 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <label for="lastname" class="form-label">Last Name</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="lastname">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Search by</h5>
+                        <label for="firstname" class="form-label">First Name</label>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="firstname">
+                        </div>
+                        <label for="lastname" class="form-label">Last Name</label>
+                        <div class="mb-4">
+                            <input type="text" class="form-control" id="lastname">
+                        </div>
+                        <div class="mb-4 text-center">
+                            <button type="submit" class="btn btn-secondary">Search</button>
+                            <button type="submit" class="btn btn-secondary">Reset</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="mb-4 text-center">
-                <button type="submit" class="btn btn-secondary">Submit</button>
-            </div>
-        </form>
         </div>
     </div>
-    
+
     <!--Separate Popper and Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
         integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
@@ -118,5 +162,4 @@
         crossorigin="anonymous">
     </script>
 </body>
-
 </html>
