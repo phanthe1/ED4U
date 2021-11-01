@@ -31,10 +31,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="mentors.html">Mentors</a>
                     <a class="nav-link" href="students.html">Students</a>
                     <a class="nav-link" href="courses.html">Courses</a>
+                    <a class="nav-link" href="students_courses.html">Students_Courses</a>
                     <a class="nav-link" href="tutors.html">Tutors</a>
-                    <a class="nav-link" href="mentors.html">Mentors</a>
                     <a class="nav-link" href="invoices.html">Invoices</a>
                 </div>
             </div>
@@ -65,6 +66,9 @@
                 <td>Brown</td>
                 <td>74827</td>
                 <td>
+                    <i class="bi bi-pencil-square"></i>
+                </td>
+                <td>
                     <i class="bi bi-trash"></i>
                 </td>
             </tr>
@@ -74,6 +78,9 @@
                 <td>Garcia</td>
                 <td>23123</td>
                 <td>
+                    <i class="bi bi-pencil-square"></i>
+                </td>
+                <td>
                     <i class="bi bi-trash"></i>
                 </td>
             </tr>
@@ -81,31 +88,58 @@
         </table>
     </div>
 
-    <!--Forms-->
-    <div class="row justify-content-center my-5">
-        <div class="col-lg-6">
-        <form>
-            <label for="firstname" class="form-label">First Name</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="firstname">
+        <!--Forms-->
+         <div class="container">
+            <div class="row my-5">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Add Data</h5>
+                            <form>
+                                <label for="firstname" class="form-label">First Name</label>
+                                <div class="mb-4">
+                                    <input type="text" class="form-control" id="firstname">
+                                </div>
+                                <label for="lastname" class="form-label">Last Name</label>
+                                <div class="mb-4">
+                                    <input type="text" class="form-control" id="lastname">
+                                </div>
+                                <label for="courseid" class="form-label">Course ID</label>
+                                <div class="mb-4">
+                                    <input type="text" class="form-control" id="courseid">
+                                </div>
+                                <div class="mb-4 text-center">
+                                    <button type="submit" class="btn btn-secondary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Search by</h5>
+                            <label for="firstname" class="form-label">First Name</label>
+                            <div class="mb-4">
+                                <input type="text" class="form-control" id="firstname">
+                            </div>
+                            <label for="lastname" class="form-label">Last Name</label>
+                            <div class="mb-4">
+                                <input type="text" class="form-control" id="lastname">
+                            </div>
+                            <label for="courseid" class="form-label">course_id</label>
+                            <div class="mb-4">
+                                <input type="text" class="form-control" id="courseid">
+                            </div>
+                            <div class="mb-4 text-center">
+                                <button type="submit" class="btn btn-secondary">Search</button>
+                                <button type="submit" class="btn btn-secondary">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <label for="lastname" class="form-label">Last Name</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="lastname">
-            </div>
-
-            <label for="course" class="form-label">Course ID</label>
-            <div class="mb-4">
-                <input type="text" class="form-control" id="course">
-            </div>
-
-            <div class="mb-4 text-center">
-                <button type="submit" class="btn btn-secondary">Submit</button>
-            </div>
-        </form>
         </div>
-    </div>
     
     <!--Separate Popper and Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
