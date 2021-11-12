@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2021 at 07:47 PM
+-- Generation Time: Nov 12, 2021 at 12:04 AM
 -- Server version: 10.4.21-MariaDB-log
 -- PHP Version: 7.4.23
 
@@ -39,8 +39,8 @@ CREATE TABLE `Courses` (
 --
 
 INSERT INTO `Courses` (`course_id`, `course_name`, `tutor_id`, `tuition`) VALUES
-(1, 'MATH101', 1, 1000),
-(2, 'BIOL122', 2, 1000);
+(1, 'Course 1', 1, 1000),
+(2, 'Course 2', 2, 1000);
 
 -- --------------------------------------------------------
 
