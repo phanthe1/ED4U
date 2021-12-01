@@ -1,0 +1,21 @@
+<html>
+<h1>Update {{mentor.first_name}} {{mentor.last_name}}:</h1>
+<form id="update_mentor" action="/mentors" method="post">
+    first_name: <input type="text" name="first_name" value="{{mentor.first_name}}"><br>
+    last_name: <input type="text" name="last_name" value="{{mentor.last_name}}"><br>
+</form>
+<button onclick="updateMentor({{mentor.mentor_id}})">Update</button>
+</html>
+
+<script type="text/javascript">
+    function updateMentor(id){
+        $.ajax({
+            url: '/mentors/' + id,
+            type: 'PUT',
+            data: $('#update_mentor').serialize(),
+            success: function(result){
+                window.location.replace("./")
+            }
+        })
+    }
+</script>

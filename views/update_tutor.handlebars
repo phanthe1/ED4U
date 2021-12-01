@@ -1,0 +1,21 @@
+<html>
+<h1>Update {{tutor.first_name}} {{tutor.last_name}}:</h1>
+<form id="update_tutor" action="/tutors" method="post">
+    first_name: <input type="text" name="first_name" value="{{tutor.first_name}}"><br>
+    last_name: <input type="text" name="last_name" value="{{tutor.last_name}}"><br>
+</form>
+<button onclick="updateTutor({{tutor.tutor_id}})">Update</button>
+</html>
+
+<script type="text/javascript">
+    function updateTutor(id){
+        $.ajax({
+            url: '/tutors/' + id,
+            type: 'PUT',
+            data: $('#update_tutor').serialize(),
+            success: function(result){
+                window.location.replace("./")
+            }
+        })
+    }
+</script>

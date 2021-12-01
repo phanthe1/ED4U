@@ -1,0 +1,32 @@
+<html>
+<h1>Update {{student.first_name}} {{student.last_name}}:</h1>
+<form id="update_student" action="/students" method="post">
+    first_name: <input type="text" name="first_name" value="{{student.first_name}}"><br>
+    last_name: <input type="text" name="last_name" value="{{student.last_name}}"><br>
+    email: <input type="email" name="email" value="{{student.email}}"><br>
+    mentor_id: <select name="mentor_id" id="mentor_id">
+        {{#each mentors}}
+            <option value="{{mentor_id}}">{{mentor_id}}</option>
+        {{/each}}
+    </select><br>
+</form>
+<button onclick="updateStudent({{student.student_id}})">Update</button>
+<script defer>selectMentor({{student.mentor_id}});</script>
+</html>
+
+<script type="text/javascript">
+    function updateStudent(id){
+        $.ajax({
+            url: '/students/' + id,
+            type: 'PUT',
+            data: $('#update_student').serialize(),
+            success: function(result){
+                window.location.replace("./")
+            }
+        })
+    }
+
+    function selectMentor(id){
+    $("#mentor_id").val(id);
+    }
+</script>

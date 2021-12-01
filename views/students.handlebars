@@ -1,0 +1,79 @@
+<div class="my-5">
+        <h1 style="text-align: center">Students</h1>
+        <h3 style="text-align: center"> This page is for adding and removing student information to the database</h3>
+</div>
+
+<div class="container">
+    <!--Table with Attributes-->
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            {{#each data.[0]}}
+            <th scope="col">
+                {{@key}}
+            </th>
+            {{/each}}
+        </tr>
+        </thead>
+
+        <tbody>
+                {{#each data}}
+                <tr>
+                    <td>{{this.student_id}}</td>
+                    <td>{{this.first_name}}</td>
+                    <td>{{this.last_name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.mentor_id}}</td>
+                    <td><a href="/students/{{this.student_id}}">Update</a></td>
+                    <td><button onclick="deleteStudent({{this.student_id}})">Delete</button></td>
+                </tr>
+                {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+<form id="add-student-form" method="POST" action="/add-student-form">
+    <h3>Add New Student</h3>
+    <label for="firstname">First Name</label>
+    <input type="text" name="first_name" id="firstname" required>
+
+    <label for="lastname">Last Name</label>
+    <input type="text"name="last_name" id="lastname" required>
+
+    <label for="email">Email Address</label>
+    <input type="email"name="email" id="email" required>
+
+    <select name="mentor_id" id="mentor_id">
+        <option value="">Select a mentor_id</option>
+        {{#each mentors}}
+        <option value="{{this.mentor_id}}">{{this.mentor_id}}</option>
+        {{/each}}
+    </select>
+
+    <input type="submit">
+</form>
+</div>
+
+<div class="container">
+<form id="search-person-html" method='GET' action='/students'>
+    <h3>Search by last name using the field below. Partial last names are OK</h3>
+    <label for="input-lname">Search by Last Name: </label>
+    <input type="text" name="last_name" id="input-lname-html-search">
+    
+    <input type="submit">
+    <a href='/students'><button>Reset</button></a>
+</form>
+</div>
+
+<script type="text/javascript">
+    function deleteStudent(id){
+        $.ajax({
+            url: `/students/${id}`,
+            type: 'DELETE',
+            success: function(result){
+                window.location.reload(true)
+            }
+        })
+    }
+</script>

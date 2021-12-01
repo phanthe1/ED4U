@@ -1,0 +1,30 @@
+<html>
+<h1>Update {{course.course_name}}:</h1>
+<form id="update_course" action="/courses" method="post">
+    course_name: <input type="text" name="course_name" value="{{course.course_name}}"><br>
+    tutor_id: <select name="tutor_id" id="tutor_id">
+        {{#each tutors}}
+            <option value="{{tutor_id}}">{{tutor_id}}</option>
+        {{/each}}
+    </select><br>
+</form>
+<button onclick="updateCourse({{course.course_id}})">Update</button>
+<script defer>selectTutor({{course.tutor_id}});</script>
+</html>
+
+<script type="text/javascript">
+    function updateCourse(id){
+        $.ajax({
+            url: '/courses/' + id,
+            type: 'PUT',
+            data: $('#update_course').serialize(),
+            success: function(result){
+                window.location.replace("./")
+            }
+        })
+    }
+
+    function selectTutor(id){
+    $("#tutor_id").val(id);
+    }
+</script>
