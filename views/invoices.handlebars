@@ -31,6 +31,39 @@
 </div>
 
 <div class="container">
+    <div class="row justify-content-around">
+        <div class="col-sm-6" style="width: 20em;">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Invoice</h4>
+                    <form id="add-invoice-form" method="POST" action="/add-invoice-form">
+                        <label for="invoice" class="form-label">Invoice</label>
+                            <div class="mb-3">
+                                <select required name="student_id" id="student_id">
+                                    <option value="">Select a student_id</option>
+                                    {{#each students}}
+                                    <option value="{{this.student_id}}">{{this.student_id}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        <label for="status" class="form-label">Status of Payment</label>
+                            <div class="mb-3">
+                                <select name="payment_status" id="status" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- <div class="container">
 <form id="add-invoice-form" method="POST" action="/add-invoice-form">
     <h3>Add New Invoice</h3>
     <br>
@@ -54,7 +87,7 @@
     <input type="submit">
     </br>
 </form>
-</div>
+</div> --}}
 
 <script type="text/javascript">
     function deleteInvoice(id){

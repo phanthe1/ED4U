@@ -30,17 +30,31 @@
     </table>
 </div>
 
+
+<!-- Forms -->
 <div class="container">
-<form id="add-tutor-form" method="POST" action="/add-tutor-form">
-    <h3>Add New Tutor</h3>
-    <label for="firstname">First Name</label>
-    <input type="text" name="first_name" id="firstname" required>
-
-    <label for="lastname">Last Name</label>
-    <input type="text"name="last_name" id="lastname" required>
-
-    <input type="submit">
-</form>
+    <div class="row justify-content-around">
+        <div class="col-sm-6" style="width: 35em;">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Mentor</h4>
+                    <form id="add-tutor-form" method="POST" action="/add-tutor-form">
+                        <label for="firstname" class="form-label">First Name</label>
+                            <div class="mb-2">
+                                <input type="text" name="first_name" class="form-control" name ="first_name" id="firstname" required>
+                            </div>
+                        <label for="lastname" class="form-label">Last Name</label>
+                            <div class="mb-3">
+                                <input type="text" name="last_name" class="form-control" name="last_name" id="lastname" required>
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">

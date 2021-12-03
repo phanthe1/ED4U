@@ -31,38 +31,44 @@
 </div>
 
 <div class="container">
-<form id="add-course-form" method="POST" action="/add-course-form">
-    <h3>Add New Course</h3>
-    <br>
-    <label for="course_name">Select a Course Name:</label>
-    <select name="course_name" id="course_name" required>
-        <option value="Course 1">Course 1</option>
-        <option value="Course 2">Course 2</option>
-        <option value="Course 3">Course 3</option>
-        <option value="Course 4">Course 4</option>
-        <option value="Course 5">Course 5</option>
-        <option value="Course 6">Course 6</option>
-        <option value="Course 7">Course 7</option>
-        <option value="Course 8">Course 8</option>
-        <option value="Course 9">Course 9</option>
-        <option value="Course 10">Course 10</option>
-    </select>
-    </br>
-    
-    <br>
-    <label for="tutor">Select a Tutor(Note that one tutor can only teach one course):</label>
-    <select name="tutor_id" id="tutor_id" required>
-        <option value="">Select a tutor_id</option>
-        {{#each tutors}}
-        <option value="{{this.tutor_id}}">{{this.tutor_id}}</option>
-        {{/each}}
-    </select>
-    </br>
-
-    <br>
-    <input type="submit">
-    </br>
-</form>
+    <div class="row justify-content-around">
+        <div class="col-sm-6" style="width: 35em;">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Course</h4>
+                    <form id="add-course-form" method="POST" action="/add-course-form">
+                        <label for="course_name" class="form-label">Select a Course Name:</label>
+                        <div class="mb-3">
+                            <select name="course_name" id="course_name" required>
+                                <option value="Course 1">Course 1</option>
+                                <option value="Course 2">Course 2</option>
+                                <option value="Course 3">Course 3</option>
+                                <option value="Course 4">Course 4</option>
+                                <option value="Course 5">Course 5</option>
+                                <option value="Course 6">Course 6</option>
+                                <option value="Course 7">Course 7</option>
+                                <option value="Course 8">Course 8</option>
+                                <option value="Course 9">Course 9</option>
+                                <option value="Course 10">Course 10</option>
+                            </select>
+                        </div>
+                        <label for="tutor" class="form-label">Select a Tutor (Note that one tutor can only teach one course)</label>
+                        <div class="mb-3">
+                            <select name="tutor_id" id="tutor_id" required>
+                                <option value="">Select a tutor_id</option>
+                                {{#each tutors}}
+                                <option value="{{this.tutor_id}}">{{this.tutor_id}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                        <div class="mb-2 text-center">
+                            <button type="submit" class="btn btn-secondary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">

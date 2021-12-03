@@ -32,28 +32,42 @@
 </div>
 
 <div class="container">
-<form id="add-student_course-form" method="POST" action="/add-student_course-form">
-    <h3>Add New Pair</h3>
-    <select name="course_id" id="course_id" required>
-        <option value="">Select a course_id</option>
-        {{#each courses}}
-        <option value="{{this.course_id}}">{{this.course_id}}</option>
-        {{/each}}
-    </select>
-
-    <select name="student_id" id="student_id" required>
-        <option value="">Select a student_id</option>
-        {{#each students}}
-        <option value="{{this.student_id}}">{{this.student_id}}</option>
-        {{/each}}
-    </select>
-
-    <input type="submit">
-</form>
-<!-- Unless conditional helper says if validQuery is false, render the html inside the blocks -->
-{{#unless validQuery}}
-<p style="color: red;">Student Course relation already exists! Please try again.</p>
-{{/unless}}
+    <div class="row justify-content-around">
+        <div class="col-sm-6" style="width: 25em;">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Student_Course Pair</h4>
+                    <form id="add-student_course-form" method="POST" action="/add-student_course-form">
+                        <label for="student" class="form-label">Student</label>
+                            <div class="mb-3">
+                                <select name="student_id" id="student_id" required>
+                                    <option value="">Select a student_id</option>
+                                    {{#each students}}
+                                    <option value="{{this.student_id}}">{{this.student_id}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        <label for="course" class="form-label">Course</label>
+                            <div class="mb-3">
+                                <select name="course_id" id="course_id" required>
+                                    <option value="">Select a course_id</option>
+                                    {{#each courses}}
+                                    <option value="{{this.course_id}}">{{this.course_id}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </div>
+                    </form>
+                    <!-- Unless conditional helper says if validQuery is false, render the html inside the blocks -->
+                    {{#unless validQuery}}
+                    <p style="color: red;">Student Course relation already exists! Please try again.</p>
+                    {{/unless}}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">
