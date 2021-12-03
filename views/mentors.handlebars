@@ -22,27 +22,38 @@
                     <td>{{this.mentor_id}}</td>
                     <td>{{this.first_name}}</td>
                     <td>{{this.last_name}}</td>
-                    <td><a href="/mentors/{{this.mentor_id}}">Update</a></td>
-                    <td><button onclick="deleteMentor({{this.mentor_id}})">Delete</button></td>
+                    <td><a class="bi bi-pencil-square" href="/mentors/{{this.mentor_id}}"></a></td>
+                    <td><a class="bi bi-trash text-danger" onclick="deleteMentor({{this.mentor_id}})"></a></td>
                 </tr>
                 {{/each}}
         </tbody>
     </table>
 </div>
 
+<!-- Forms -->
 <div class="container">
-<form id="add-mentor-form" method="POST" action="/add-mentor-form">
-    <h3>Add New Mentor</h3>
-    <br>
-    <label for="firstname">First Name</label>
-    <input type="text" name="first_name" id="firstname" required>
-
-    <label for="lastname">Last Name</label>
-    <input type="text"name="last_name" id="lastname" required>
-
-    <input type="submit">
-    </br>
-</form>
+    <div class="row justify-content-around">
+        <div class="col-sm-6" style="width: 35em;">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Mentor</h4>
+                    <form id="add-mentor-form" method="POST" action="/add-mentor-form">
+                        <label for="firstname" class="form-label">First Name</label>
+                            <div class="mb-2">
+                                <input type="text" class="form-control" name ="first_name" id="firstname" required>
+                            </div>
+                        <label for="lastname" class="form-label">Last Name</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="last_name" id="lastname" required>
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">

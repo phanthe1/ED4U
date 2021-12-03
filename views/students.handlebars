@@ -24,8 +24,8 @@
                     <td>{{this.last_name}}</td>
                     <td>{{this.email}}</td>
                     <td>{{this.mentor_id}}</td>
-                    <td><a href="/students/{{this.student_id}}">Update</a></td>
-                    <td><button onclick="deleteStudent({{this.student_id}})">Delete</button></td>
+                    <td><a class="bi bi-pencil-square" href="/students/{{this.student_id}}"></a></td>
+                    <td><a class="bi bi-trash text-danger" onclick="deleteStudent({{this.student_id}})"></a></td>
                 </tr>
                 {{/each}}
         </tbody>
@@ -33,37 +33,59 @@
 </div>
 
 <div class="container">
-<form id="add-student-form" method="POST" action="/add-student-form">
-    <h3>Add New Student</h3>
-    <label for="firstname">First Name</label>
-    <input type="text" name="first_name" id="firstname" required>
-
-    <label for="lastname">Last Name</label>
-    <input type="text"name="last_name" id="lastname" required>
-
-    <label for="email">Email Address</label>
-    <input type="email"name="email" id="email" required>
-
-    <select name="mentor_id" id="mentor_id">
-        <option value="">Select a mentor_id</option>
-        {{#each mentors}}
-        <option value="{{this.mentor_id}}">{{this.mentor_id}}</option>
-        {{/each}}
-    </select>
-
-    <input type="submit">
-</form>
-</div>
-
-<div class="container">
-<form id="search-person-html" method='GET' action='/students'>
-    <h3>Search by last name using the field below. Partial last names are OK</h3>
-    <label for="input-lname">Search by Last Name: </label>
-    <input type="text" name="last_name" id="input-lname-html-search">
-    
-    <input type="submit">
-    <a href='/students'><button>Reset</button></a>
-</form>
+    <div class="row my-5">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Add New Student</h4>
+                    <form id="add-student-form" method="POST" action="/add-student-form">
+                        <label for="firstname" class="form-label">First Name</label>
+                            <div class="mb-3">
+                                <input type="text" name="first_name" class="form-control" id="firstname" required>
+                            </div>
+                        <label for="lastname" class="form-label">Last Name</label>
+                            <div class="mb-3">
+                                <input type="text" name="last_name" class="form-control" id="lastname" required>
+                            </div>
+                        <label for="email" class="form-label">Email Address</label>
+                            <div class="mb-3">
+                                <input type="email" name="email" class="form-control" id="email" required>
+                            </div>
+                        <label for="mentor" class="form-label">Mentor</label>
+                            <div class="mb-3">
+                                <select name="mentor_id" id="mentor_id">
+                                    <option value="">Select a mentor_id</option>
+                                    {{#each mentors}}
+                                    <option value="{{this.mentor_id}}">{{this.mentor_id}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Search Student</h4>
+                        <form id="search-person-html" method='GET' action='/students'>
+                            <label for="input-lname">Search by Last Name (Partial last names are OK): </label>
+                            <div class="mb-4">
+                                <input type="text" name="last_name" class="form-control" id="input-lname-html-search">
+                            </div>
+                            <div class="mb-2 text-center">
+                                <button type="submit" class="btn btn-secondary">Submit</button>
+                                <a href='/students'></a><button type="submit" class="btn btn-secondary">Reset</button></a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
 </div>
 
 <script type="text/javascript">

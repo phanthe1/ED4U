@@ -22,8 +22,8 @@
                     <td>{{this.tutor_id}}</td>
                     <td>{{this.first_name}}</td>
                     <td>{{this.last_name}}</td>
-                    <td><a href="/tutors/{{this.tutor_id}}">Update</a></td>
-                    <td><button onclick="deleteTutor({{this.tutor_id}})">Delete</button></td>
+                    <td><a class="bi bi-pencil-square" href="/tutors/{{this.tutor_id}}"></a></td>
+                    <td><a class="bi bi-trash text-danger" onclick="deleteTutor({{this.tutor_id}})"></a></td>
                 </tr>
                 {{/each}}
         </tbody>

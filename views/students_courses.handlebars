@@ -24,7 +24,7 @@
                     <td>{{this.student_id}}</td>
                     <td>{{this.course_id}}</td>
                     <td>{{this.course_name}}</td>
-                    <td><button onclick="deleteStudentCourse({{this.course_id}},{{this.student_id}})">Delete</button></td>
+                    <td><a class="bi bi-trash text-danger" onclick="deleteStudentCourse({{this.course_id}},{{this.student_id}})"></a></td>
                 </tr>
                 {{/each}}
         </tbody>

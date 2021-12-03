@@ -22,8 +22,8 @@
                     <td>{{this.invoice_id}}</td>
                     <td>{{this.student_id}}</td>
                     <td>{{this.payment_status}}</td>
-                    <td><a href="/invoices/{{this.invoice_id}}">Update</a></td>
-                    <td><button onclick="deleteInvoice({{this.invoice_id}})">Delete</button></td>
+                    <td><a class="bi bi-pencil-square" href="/invoices/{{this.invoice_id}}"></a></td>
+                    <td><a class="bi bi-trash text-danger" onclick="deleteInvoice({{this.invoice_id}})"></a></td>
                 </tr>
                 {{/each}}
         </tbody>
