@@ -30,17 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `Courses` (
   `course_id` int(11) NOT NULL,
   `course_name` varchar(255) NOT NULL,
-  `tutor_id` int(11) NOT NULL,
-  `tuition` int(11) NOT NULL
+  `tutor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Courses`
 --
 
-INSERT INTO `Courses` (`course_id`, `course_name`, `tutor_id`, `tuition`) VALUES
-(1, 'Course 1', 1, 1000),
-(2, 'Course 2', 2, 1000);
+INSERT INTO `Courses` (`course_id`, `course_name`, `tutor_id`) VALUES
+(1, 'Course 1', 1),
+(2, 'Course 2', 2);
 
 -- --------------------------------------------------------
 
@@ -51,19 +50,16 @@ INSERT INTO `Courses` (`course_id`, `course_name`, `tutor_id`, `tuition`) VALUES
 CREATE TABLE `Invoices` (
   `invoice_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `tuition_per_course` int(11) NOT NULL,
-  `number_of_courses` int(11) NOT NULL,
-  `total_cost` int(11) NOT NULL,
-  `payment_status` bit(1) NOT NULL
+  `payment_status` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `Invoices`
 --
 
-INSERT INTO `Invoices` (`invoice_id`, `student_id`, `tuition_per_course`, `number_of_courses`, `total_cost`, `payment_status`) VALUES
-(1, 1, 1000, 2, 2000, b'1'),
-(2, 2, 1000, 1, 1000, b'1');
+INSERT INTO `Invoices` (`invoice_id`, `student_id`,`payment_status`) VALUES
+(1, 1, b'1'),
+(2, 2, b'1');
 
 -- --------------------------------------------------------
 
@@ -97,7 +93,7 @@ CREATE TABLE `Students` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `mentor_id` int(11) DEFAULT NULL
+  `mentor_id` int(11) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -246,7 +242,7 @@ ALTER TABLE `Invoices`
 -- Constraints for table `Students`
 --
 ALTER TABLE `Students`
-  ADD CONSTRAINT `Students_ibfk_1` FOREIGN KEY (`mentor_id`) REFERENCES `Mentors` (`mentor_id`) ON DELETE CASCADE;
+  ADD CONSTRAINT `Students_ibfk_1` FOREIGN KEY (`mentor_id`) REFERENCES `Mentors` (`mentor_id`) ON DELETE SET NULL;
 
 --
 -- Constraints for table `Students_Courses`
