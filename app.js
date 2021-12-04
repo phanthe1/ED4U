@@ -228,7 +228,13 @@ app.get('/students', (req, res) => {
 app.post('/add-student-form', function(req, res){
   // Capture the incoming data and parse it back to a JS object
   let data = req.body;
-  let query1 = `INSERT INTO Students (first_name, last_name, email, mentor_id) VALUES ('${data['first_name']}', '${data['last_name']}', '${data['email']}', '${data['mentor_id']}')`;
+  
+  // Create the query and run it on the database
+  if (req.query.mentor_id === undefined) {
+    query1 = `INSERT INTO Students (first_name, last_name, email) VALUES ('${data['first_name']}', '${data['last_name']}', '${data['email']}')`;
+  } else {
+    query1 = `INSERT INTO Students (first_name, last_name, email, mentor_id) VALUES ('${data['first_name']}', '${data['last_name']}', '${data['email']}', '${data['mentor_id']}')`;
+  }
 
   mysql.pool.query(query1, function(error, rows, fields){
       // Check to see if there was an error
@@ -497,11 +503,7 @@ app.get('/invoices', (req, res) => {
   mysql.pool.query(query1, function(err, rows, fields) {
       let invoices = rows;
       for(let invoice of invoices){
-        if(invoice.payment_status == 1){
-          invoice.payment_status = "Yes"
-        }else{
-          invoice.payment_status = "No"
-        }
+        invoice.payment_status == 1? invoice.payment_status = "Yes" : invoice.payment_status =  "No"
       }
       mysql.pool.query(query2, function(err, rows, fields){
         let students = rows;
@@ -573,10 +575,10 @@ app.get('/invoices/:invoice_id', function(req, res){
 });
 
 app.put('/invoices/:id', function(req,res){
-  console.log(req.body)
-  console.log(req.params.id)
-  var sql = "UPDATE Invoices SET student_id=?, payment_status=? WHERE invoice_id = ?";
-  var inserts = [req.body.student_id, req.body.payment_status, req.params.id];
+  var sql = "UPDATE Invoices SET payment_status=? WHERE invoice_id = ?";
+  var payment_status;
+  req.body.payment_status == "yes"? payment_status = 1: payment_status = 0
+  var inserts = [payment_status, req.params.id];
   sql = mysql.pool.query(sql,inserts,function(error, results, fields){
       if(error){
           console.log(error)
@@ -587,7 +589,7 @@ app.put('/invoices/:id', function(req,res){
           res.end();
       }
   });
-});
+}); 
 
 // Delete an invoice. It will return a 202 upon success. Uses AJAX.
 app.delete('/invoices/:id', function(req,res){
