@@ -22,7 +22,6 @@
                     <td>{{this.course_id}}</td>
                     <td>{{this.course_name}}</td>
                     <td>{{this.tutor_id}}</td>
-                    <td><a class="bi bi-pencil-square" href="/courses/{{this.course_id}}"></a></td>
                     <td><a class="bi bi-trash text-danger" onclick="deleteCourse({{this.course_id}})"></a></td>
                 </tr>
                 {{/each}}
@@ -30,6 +29,13 @@
     </table>
 </div>
 
+<!--Citation for cards and forms
+    Date: 10/24/2021
+    Adapted from
+    Source URL: https://getbootstrap.com/docs/4.0/components/card/, https://getbootstrap.com/docs/4.0/components/forms/
+-->
+
+<!--Forms-->
 <div class="container">
     <div class="row justify-content-around">
         <div class="col-sm-6" style="width: 35em;">
@@ -37,27 +43,18 @@
                 <div class="card-body">
                     <h4 class="card-title">Add New Course</h4>
                     <form id="add-course-form" method="POST" action="/add-course-form">
-                        <label for="course_name" class="form-label">Select a Course Name:</label>
+
+                        <label for="course_name" class="form-label">Type the Course Name:</label>
                         <div class="mb-3">
-                            <select name="course_name" id="course_name" required>
-                                <option value="Course 1">Course 1</option>
-                                <option value="Course 2">Course 2</option>
-                                <option value="Course 3">Course 3</option>
-                                <option value="Course 4">Course 4</option>
-                                <option value="Course 5">Course 5</option>
-                                <option value="Course 6">Course 6</option>
-                                <option value="Course 7">Course 7</option>
-                                <option value="Course 8">Course 8</option>
-                                <option value="Course 9">Course 9</option>
-                                <option value="Course 10">Course 10</option>
-                            </select>
+                            <input type="text" class="form-control" name="course_name" id="coursename" required>
                         </div>
                         <label for="tutor" class="form-label">Select a Tutor (Note that one tutor can only teach one course)</label>
                         <div class="mb-3">
                             <select name="tutor_id" id="tutor_id" required>
-                                <option value="">Select a tutor_id</option>
+
+                                <option value="">Select A Tutor</option>
                                 {{#each tutors}}
-                                <option value="{{this.tutor_id}}">{{this.tutor_id}}</option>
+                                <option value="{{this.tutor_id}}">{{this.tutor_id}}-{{this.first_name}} {{this.last_name}}</option>
                                 {{/each}}
                             </select>
                         </div>
@@ -81,4 +78,6 @@
             }
         })
     }
+
 </script>
+
