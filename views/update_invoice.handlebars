@@ -1,7 +1,7 @@
 <html>
 <h1>Update Invoice {{invoice.invoice_id}}:</h1>
 <form id="update_invoice" action="/invoices" method="post">
-    payment_status: <select name="payment_status" id="payment_status">
+    payment_status: <select name="payment_status" id="payment_status" value="{{invoice.payment_status}}">
         <option value="yes">Yes</option>
         <option value="no">No</option>
     </select>
