@@ -50,7 +50,7 @@ INSERT INTO `Courses` (`course_id`, `course_name`, `tutor_id`) VALUES
 CREATE TABLE `Invoices` (
   `invoice_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `payment_status` tinyint(1) NOT NULL
+  `payment_status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -58,8 +58,8 @@ CREATE TABLE `Invoices` (
 --
 
 INSERT INTO `Invoices` (`invoice_id`, `student_id`,`payment_status`) VALUES
-(1, 1, b'1'),
-(2, 2, b'1');
+(1, 1, 'Yes'),
+(2, 2, 'No');
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ CREATE TABLE `Students` (
   `first_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `mentor_id` int(11) NULL
+  `mentor_id` int(11)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -103,7 +103,8 @@ CREATE TABLE `Students` (
 INSERT INTO `Students` (`student_id`, `first_name`, `last_name`, `email`, `mentor_id`) VALUES
 (1, 'Elizabeth', 'Smith', 'smith.eli@gmail.com', 1),
 (2, 'Charlie', 'Miller', 'miller.cha@gmail.com', 2),
-(3, 'Rebecca', 'Williams', 'williams.reb@gmail.com', 3);
+(3, 'Rebecca', 'Williams', 'williams.reb@gmail.com', 3),
+(4, 'Belle', 'Nilson', 'belle.n@gmail.com', NULL);
 
 -- --------------------------------------------------------
 
