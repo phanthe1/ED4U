@@ -1,9 +1,10 @@
 <html>
 <h1>Update Invoice {{invoice.invoice_id}}:</h1>
 <form id="update_invoice" action="/invoices" method="post">
-    payment_status: <select name="payment_status" id="payment_status" value="{{invoice.payment_status}}">
-        <option value="yes">Yes</option>
-        <option value="no">No</option>
+    payment_status: <select name="payment_status" id="payment_status">
+        <option value="{{invoice.payment_status}}">{{invoice.payment_status}}</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
     </select>
 </form>
 <button onclick="updateInvoice({{invoice.invoice_id}})">Update</button>
@@ -25,4 +26,5 @@
     function selectStudent(id){
     $("#student_id").val(id);
     }
+
 </script>
