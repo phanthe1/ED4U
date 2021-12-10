@@ -30,6 +30,7 @@
     </table>
 </div>
 
+<!--Forms-->
 <div class="container">
     <div class="row justify-content-around">
         <div class="col-sm-6" style="width: 20em;">
@@ -40,17 +41,17 @@
                         <label for="invoice" class="form-label">Invoice</label>
                             <div class="mb-3">
                                 <select required name="student_id" id="student_id">
-                                    <option value="">Select a student_id</option>
+                                    <option value="">Select A Student</option>
                                     {{#each students}}
-                                    <option value="{{this.student_id}}">{{this.student_id}}</option>
+                                    <option value="{{this.student_id}}">{{this.student_id}}-{{this.first_name}} {{this.last_name}}</option>
                                     {{/each}}
                                 </select>
                             </div>
                         <label for="status" class="form-label">Status of Payment</label>
                             <div class="mb-3">
                                 <select name="payment_status" id="status" required>
-                                    <option value="yes">Yes</option>
-                                    <option value="no">No</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
                                 </select>
                             </div>
                             <div class="mb-2 text-center">
@@ -74,4 +75,3 @@
         })
     }
 </script>
-
